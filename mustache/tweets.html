@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Tweets with Mustache.js</title>
+</head>
+
+<body>
+
+<h1>Tweets with Mustache.js</h1>
+
+<input id="twitterHandler" type="text" placeholder="Twitter Handler" />
+<button id="getTweetsBttn">Get Tweets</button>
+
+<div id="tweetsArea"></div>
+
+<script src="jquery.min.js"></script>
+<script src="mustache.js"></script>   
+<script>
+
+$(document).ready(function() {
+	$("#getTweetsBttn").click(function() {
+		var twitterHandler = $("#twitterHandler").val();
+		$('#tweetsArea').html("loading..");
+		$.getJSON('http://search.twitter.com/search.json?callback=?&rpp=10&q=from:' + twitterHandler, function(data) {
+			var template = "<h1>Tweets from " + twitterHandler + "</h1><ul>{{#results}}<li>{{text}}</li>{{/results}}</ul>";
+			var html = Mustache.to_html(template, data);
+			$('#tweetsArea').html(html);
+		});
+	});
+});
+</script>
+</body>
+</html>

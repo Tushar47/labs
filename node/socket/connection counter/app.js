@@ -9,11 +9,14 @@ app.get('/', function(request, response) {
 
 io.sockets.on('connection', function(socket) {
 	activeClients += 1;
-	console.log("Active Clients: " + activeClients);
+	console.log("Active Clients : " + activeClients);
 	io.sockets.emit('message', { clients: activeClients });
+	
 	socket.on('disconnect', function() {
 		activeClients -= 1;
-		console.log("Active Clients: " + activeClients);
+		console.log("Active Clients : " + activeClients);
 		io.sockets.emit('message', { clients: activeClients });
 	});
+	
 });
+

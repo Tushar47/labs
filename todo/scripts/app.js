@@ -19,7 +19,7 @@ $(function() {
 					return uid;
 				},
 			store: function (data) {
-				if (arguments.length == 1) {
+				if (arguments.length === 1) {
 					return localStorage.setItem('todo-app', JSON.stringify(data));
 				} else {
 					var store = localStorage.getItem('todo-app');

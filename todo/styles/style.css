@@ -11,8 +11,7 @@ h1 {
 	font: 70px;
 	font-weight: bold;
 	text-align: center;
-	color: rgba(255, 255, 255, 0.3);
-	text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+	color: #aaa;
 }
 
 
@@ -36,6 +35,10 @@ h1 {
 	padding: 0;
 	width: 100%;
 }
+#done-list li label {
+	text-decoration: line-through;
+}
+
 .data {
 	margin: 5px 0;
 	padding: 2px;
@@ -77,10 +80,6 @@ h1 {
 .destroy {
 	background: url('../images/destroy.png');
 	float: right;
-}
-
-.done {
-	text-decoration: line-through;
 }
 
 footer {
